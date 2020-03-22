@@ -1,5 +1,5 @@
 # chat-space DB設計
-## userテーブル
+## usersテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -11,7 +11,7 @@
 - has_many :users_groups
 - has_many  :groups,  through:  :users_groups
 
-## groupテーブル
+## groupsテーブル
 
 |Column|Type|Options|
 |------|----|-------|
@@ -31,7 +31,7 @@
 - belongs_to :user
 - belongs_to :group
 
-## messageテーブル
+## messagesテーブル
 
 |Column|Type|Options|
 |------|----|-------|
