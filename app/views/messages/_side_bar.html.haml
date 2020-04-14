@@ -5,8 +5,8 @@
         = current_user.name
       %ul.menu
         %li.menu__edit
-        = link_to "#" do
-          = icon('far', 'edit', class: "icon")
+          = link_to new_group_path(current_user) do
+            = icon('far', 'edit', class: "icon")
         %li.menu__cog
           = link_to edit_user_path(current_user) do
             = icon('fas', 'cog', class: "icon")
