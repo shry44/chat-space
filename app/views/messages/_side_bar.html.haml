@@ -12,20 +12,11 @@
             = icon('fas', 'cog', class: "icon")
 
   .side-bar__group-list
-    .side-bar__group-list__group
-      .side-bar__group-list__group__name
-        techcamp
-      .side-bar__group-list__group__new-message
-        まだメッセージがありません
-      .side-bar__group-list__group__name
-        techcamp
-      .side-bar__group-list__group__new-message
-        まだメッセージがありません
-      .side-bar__group-list__group__name
-        techcamp
-      .side-bar__group-list__group__new-message
-        まだメッセージがありません
-      .side-bar__group-list__group__name
-        techcamp
-      .side-bar__group-list__group__new-message
-        まだメッセージがありません
+    - current_user.groups.each do |group|
+      .side-bar__group-list__group
+        = link_to '#' do
+          .side-bar__group-list__group__name
+            = group.name
+          .side-bar__group-list__group__new-message
+            メッセージはまだありません
+
