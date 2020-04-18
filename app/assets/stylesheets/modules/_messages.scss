@@ -51,12 +51,14 @@ $btnblue: #38aef0;
     background-color: #2f3e51;
     &__group {
       font-weight: bold;
-      color: $txtwhite;
+      text-decoration: none;
       &__name {
+        color: $txtwhite;
         font-size: 15px;
         padding: 20px 20px 5px;
       }
       &__new-message {
+        color: $txtwhite;
         font-size: 11px;
         padding: 0 20px 40px 20px;
       }
