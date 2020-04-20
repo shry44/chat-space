@@ -7,31 +7,10 @@
         Member:
     = link_to "#", class: "chat-main__group-info__btn" do
       Edit
+      
   .chat-main__message-list
-    .chat-main__message-list__post
-      .chat-main__message-list__post__box
-        .chat-main__message-list__post__box__name
-          masa
-        .chat-main__message-list__post__box__time
-          2019/11/20(Wed)17:43:01
-      .chat-main__message-list__post__message
-        おはよう
-    .chat-main__message-list__post
-      .chat-main__message-list__post__box
-        .chat-main__message-list__post__box__name
-          masa
-        .chat-main__message-list__post__box__time
-          2019/11/20(Wed)17:43:01
-      .chat-main__message-list__post__message
-        おはよう
-    .chat-main__message-list__post
-      .chat-main__message-list__post__box
-        .chat-main__message-list__post__box__name
-          masa
-        .chat-main__message-list__post__box__time
-          2019/11/20(Wed)17:43:01
-      .chat-main__message-list__post__message
-        おはよう
+    = render @messages
+
   .chat-main__message-form
     = form_for [@group, @message], html: { class: "message-form" } do |f|
       .message-form__input-box
