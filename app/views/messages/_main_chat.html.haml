@@ -33,11 +33,10 @@
       .chat-main__message-list__post__message
         おはよう
   .chat-main__message-form
-    %form.message-form
+    = form_for [@group, @message], html: { class: "message-form" } do |f|
       .message-form__input-box
-        %input{type: "text", class:"message-form__input-box__text", placeholder: "type a message"}
-        %label{class: "message-form__input-box__image"}
+        = f.text_field :content, class: 'message-form__input-box__text', placeholder: "type a message"
+        = f.label :image, class: 'message-form__input-box__image' do
           = icon('fas', 'image')
-          %input{type: "file", class:"message-form__input-box__image__file"}
-      %input{type: "submit", class: "message-form__submit-btn", value: "Send"}
-    
+          = f.file_field :image, class: "message-form__input-box__image__file"
+      = f.submit 'Send', class: "message-form__submit-btn"
