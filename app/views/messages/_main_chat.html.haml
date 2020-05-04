@@ -17,8 +17,8 @@
   .chat-main__message-form
     = form_for [@group, @message], html: { class: "message-form" } do |f|
       .message-form__input-box
-        = f.text_field :content, class: 'message-form__input-box__text', placeholder: "type a message"
-        = f.label :image, class: 'message-form__input-box__image' do
+        = f.text_field :content, local: true, class: 'message-form__input-box__text', placeholder: "type a message"
+        = f.label :image, local: true, class: 'message-form__input-box__image' do
           = icon('fas', 'image')
-          = f.file_field :image, class: "message-form__input-box__image__file"
-      = f.submit 'Send', class: "message-form__submit-btn"
+          = f.file_field :image, local: true, class: "message-form__input-box__image__file"
+      = f.submit 'Send', local: true, class: "message-form__submit-btn"
