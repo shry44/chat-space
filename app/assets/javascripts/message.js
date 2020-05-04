@@ -47,8 +47,10 @@ $(function(){
     })
     .done(function(data){
       var html = buildHTML(data);
-      $('.messages').append(html);
+      $('.chat-main__message-list').append(html);
       $('form')[0].reset();
+      $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+      $('.message-form__submit-btn').attr('disabled',false);
     })
   })
 });
