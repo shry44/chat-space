@@ -1,8 +1,31 @@
-$(function(){
+$(function() {
+  var reloadMessages = function() {
+    var last_message_id = $('.chat-main__message-list__post:last').data("message-id");
+    $.ajax({
+      url: "api/messages",
+      type: 'get',
+      dataType: 'json',
+      data: {id: last_message_id}
+    })
+    .done(function(messages) {
+      if (messages.length != 0) {
+        var insertHTML = '';
+        $.each(messages, function(i, message) {
+          insertHTML += buildHTML(message)
+        });
+        $('.chat-main__message-list').append(insertHTML);
+        $('.chat-main__message-list').animate({ scrollTop: $('.chat-main__message-list')[0].scrollHeight});
+      }
+    })
+    .fail(function(){
+      alert('error');
+    });
+  }
+
   function buildHTML(message){
     if ( message.image ) {
       var html =
-      `<div class="chat-main__message-list__post">
+      `<div class="chat-main__message-list__post" data-message-id=${message.id}>
         <div class="chat-main__message-list__post__box">
           <div class="chat-main__message-list__post__box__name">
             ${message.user_name}
@@ -18,7 +41,7 @@ $(function(){
       return html;
     } else {
       var html =
-      `<div class="chat-main__message-list__post">
+      `<div class="chat-main__message-list__post" data-message-id=${message.id}>
         <div class="chat-main__message-list__post__box">
           <div class="chat-main__message-list__post__box__name">
             ${message.user_name}
@@ -56,4 +79,7 @@ $(function(){
       alert("メッセージ送信に失敗しました");
     });
   })
+  if (document.location.href.match(/\/groups\/\d+\/messages/)) {
+    setInterval(reloadMessages, 7000);
+  }
 });
