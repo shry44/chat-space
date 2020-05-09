@@ -10,6 +10,9 @@ $btnblue: #38aef0;
 .wrapper {
   display: flex;
 }
+a {
+  text-decoration: none;
+}
 .side-bar {
   height: 100vh;
   width: 300px;
@@ -51,7 +54,6 @@ $btnblue: #38aef0;
     background-color: #2f3e51;
     &__group {
       font-weight: bold;
-      text-decoration: none;
       &__name {
         color: $txtwhite;
         font-size: 15px;
